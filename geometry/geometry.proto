@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/KernelGamut32/grpc-geometry/geometry";
+
+message Circle {
+    float radius = 1;
+}
+
+message AreaRequest {
+    Circle circle = 1;
+}
+
+message AreaResponse {
+    float area = 1;
+}
+
+message PerimeterRequest {
+    Circle circle = 1;
+}
+
+message PerimeterResponse {
+    float perimeter = 1;
+}
+
+service Geometry {
+    rpc ComputeArea(AreaRequest) returns (AreaResponse);
+    rpc ComputePerimeter(PerimeterRequest) returns (PerimeterResponse);
+}
